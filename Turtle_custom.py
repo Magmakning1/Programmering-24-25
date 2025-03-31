@@ -29,6 +29,7 @@ class New_Turtle:
         self.turtle.speed(self.speed)
         self.turtle.pensize(self.pensize)
         self.turtle.color(self.color)
+        print(f"New turtle created: speed= {self.speed} color= {self.color} pensize= {self.pensize}")
         pass
 
     def move(self, heading, distance):
@@ -42,3 +43,19 @@ class New_Turtle:
         self.turtle.penup()
         self.turtle.goto(x,y)
         self.turtle.pendown()
+
+    def xcor(self):
+        return self.turtle.xcor()
+
+    def ycor(self):
+        return self.turtle.ycor()
+
+    def heading(self):
+        return self.turtle.heading()
+
+    def return_00(self, screensize):
+        
+          if self.xcor() > screensize / 2 or self.xcor() < -screensize / 2 or self.ycor() > screensize / 2 or self.ycor() < -screensize / 2:
+              self.tp(0,0)
+    def info(self):
+        print(int(self.xcor()), int(self.ycor()))
