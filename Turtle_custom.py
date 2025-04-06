@@ -16,21 +16,27 @@ class Screen:
 
     def mainloop(self):
         while True:
-            pass
+            self.screen.update()
 
-class New_Turtle:
+    def screensize(self):
+        return self.screensize
 
-    def __init__(self, speed: int, color, pensize: int):
+class Turtle:
+
+    def __init__(self, speed: int, color, pensize: int, ishidden: bool):
         self.speed = speed
         self.color = color
         self.pensize = pensize
+        self.ishidden = ishidden
 
         self.turtle = turtle.Turtle()
         self.turtle.speed(self.speed)
         self.turtle.pensize(self.pensize)
         self.turtle.color(self.color)
-        print(f"New turtle created: speed= {self.speed} color= {self.color} pensize= {self.pensize}")
-        pass
+        if ishidden:
+            self.turtle.hideturtle()
+        if not ishidden:
+            self.turtle.showturtle()
 
     def move(self, heading, distance):
         self.turtle.setheading(heading)
@@ -44,6 +50,12 @@ class New_Turtle:
         self.turtle.goto(x,y)
         self.turtle.pendown()
 
+    def setx(self, x):
+        self.turtle.setx(x)
+
+    def sety(self, y):
+        self.turtle.sety(y)
+
     def xcor(self):
         return self.turtle.xcor()
 
@@ -52,10 +64,3 @@ class New_Turtle:
 
     def heading(self):
         return self.turtle.heading()
-
-    def return_00(self, screensize):
-        
-          if self.xcor() > screensize / 2 or self.xcor() < -screensize / 2 or self.ycor() > screensize / 2 or self.ycor() < -screensize / 2:
-              self.tp(0,0)
-    def info(self):
-        print(int(self.xcor()), int(self.ycor()))
