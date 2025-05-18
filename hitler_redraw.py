@@ -75,7 +75,9 @@ def mtcs36(stmt, startpoint, penwith, color, clockwise, isFilling):
   if isFilling:
     t1.end_fill()
 
-def mouth(startpunkt, segments, size, clockwise):
+def mouth(startpunkt, segments, size, clockwise, pensize):
+  t1.pensize(int(pensize))
+  
   if clockwise:
     t1.setheading(270)
   if not clockwise:
@@ -102,5 +104,22 @@ if True:
   mtcs36(12,[t1.xcor(),t1.ycor()],5,[0,0,0],False, True)
   t1tp(0,0)
   line([5,-1],[5,-5],10,[0,0,0])
-  mouth([10,17.5], 36, 1, False)
+  mouth([10,17.5], 36, 1, False, 5)
 
+  line([-25,-5], [35,-5], 5, [50,50,50])
+  t1.begin_fill()
+  line([35,-5], [35,-100], 5, [50,50,50])
+  line([35,-100], [-25, -100], 5, [50,50,50])
+  line([-25,-100], [-25, -5], 5, [50,50,50])
+  t1.end_fill()
+  line([-25,-5], [35,-5], 5, [0,0,0])
+  line([35,-5], [35,-100], 5, [0,0,0])
+  line([35,-100], [-25, -100], 5, [0,0,0])
+  line([-25,-100], [-25, -5], 5, [0,0,0])
+  
+  line([-27,-10], [-100,30], 15, [0,0,0])
+  line([37,-10], [47, -50], 15, [0,0,0])
+  line([47, -50], [0, -60], 15, [0,0,0])
+  line([40,-20], [42, -30], 15, [255,0,0])
+  line([0, -60], [-1, -60], 15, [255,242,209])
+  line([-100,30], [-101,30], 15, [255,242,209])
