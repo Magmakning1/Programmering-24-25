@@ -75,16 +75,32 @@ def mtcs36(stmt, startpoint, penwith, color, clockwise, isFilling):
   if isFilling:
     t1.end_fill()
 
+def mouth(startpunkt, segments, size, clockwise):
+  if clockwise:
+    t1.setheading(270)
+  if not clockwise:
+    t1.setheading(90)
+
+  t1tp(startpunkt[0], startpunkt[1])
+  for x in range(int(segments / 2)):
+    t1.forward(size)
+    if clockwise:
+      t1.right(360 / segments)
+    if not clockwise:
+      t1.left(360 / segments)
+
 #faktiske tegning / bruk av def funksjonene
 if True:
   head(255,242,209)
   eye(-20,60,4)
   eye(30,60,4)
   outline_circle(0,0,5,[0,0,0])
-  line([-5,30],[15,30],15,[0,0,0])
+  line([-2,30],[10,30],15,[0,0,0])
   line([-35,74],[-5,71],7,[0,0,0])
   line([45,74],[15,71],7,[0,0,0])
   mtcs36(11,[0,0],5,[0,0,0],False, False)
   mtcs36(12,[t1.xcor(),t1.ycor()],5,[0,0,0],False, True)
   t1tp(0,0)
   line([5,-1],[5,-5],10,[0,0,0])
+  mouth([10,17.5], 36, 1, False)
+
