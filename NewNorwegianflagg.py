@@ -4,7 +4,7 @@ scr = Screen(400,[0, 0, 0])
 t1 = Turtle(0, [255, 0, 0], 5, True)
 t2 = Turtle(0, [255, 255, 255], 5, True)
 t3 = Turtle(0, [0, 0, 255], 5, True)
-t4 = Turtle(0, [255, 255, 255], 5, True)
+t4 = Turtle(0, [81, 81, 81], 5, True)
 
 t1.tp(-135,-80)
 for i in range(135):
